@@ -1,4 +1,4 @@
-# mp4-to-mp3-converision-using-java-and-ffmpeg
+# mp4-to-mp3-converision-using-java-and-ffmpeg for Windows.
 
 install ffmpeg from the offcial website(i have it placed in c:).
 verify installtion from command line uisng the command : ffmpeg -version.
