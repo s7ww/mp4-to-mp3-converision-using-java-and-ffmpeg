@@ -8,8 +8,9 @@ import java.io.InputStreamReader;
 public class main {
     public static void main(String[] args) {
         // Update these paths to point to your files
-    	String inputFilePath = "C:\\Users\\saone\\OneDrive\\Desktop\\SPRING\\002hibernate-for-beginners02-new-spring-core\\001 What Is Inversion Of Control.mp4";
-    	String outputFilePath = "C:\\Users\\saone\\OneDrive\\Desktop\\SPRING\\002hibernate-for-beginners02-new-spring-core\\output.mp3";
+    	String inputFilePath = "path/to/your/input.mp4"; // Replace with your actual input MP4 file path 
+
+       String outputFilePath = "path/to/your/output.mp3"; // Replace with your actual output MP3 file path
 
 
         // FFmpeg command to convert MP4 to MP3
