@@ -1,0 +1,44 @@
+code:
+
+package mp4;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class main {
+    public static void main(String[] args) {
+        // Update these paths to point to your files
+    	String inputFilePath = "C:\\Users\\saone\\OneDrive\\Desktop\\SPRING\\002hibernate-for-beginners02-new-spring-core\\001 What Is Inversion Of Control.mp4";
+    	String outputFilePath = "C:\\Users\\saone\\OneDrive\\Desktop\\SPRING\\002hibernate-for-beginners02-new-spring-core\\output.mp3";
+
+
+        // FFmpeg command to convert MP4 to MP3
+    	String ffmpegCommand = "C:/ffmpeg/bin/ffmpeg.exe -i \"" + inputFilePath + "\" -q:a 0 -map a \"" + outputFilePath + "\"";
+
+
+        try {
+            // ProcessBuilder for Windows: cmd.exe /c to run commands
+            ProcessBuilder builder = new ProcessBuilder("cmd.exe", "/c", ffmpegCommand);
+            builder.redirectErrorStream(true);
+            Process process = builder.start();
+
+            // Capture and print output of the FFmpeg process
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+
+            // Wait for the process to finish
+            int exitCode = process.waitFor();
+            if (exitCode == 0) {
+                System.out.println("Conversion completed successfully!");
+            } else {
+                System.out.println("Conversion failed with exit code: " + exitCode);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+
